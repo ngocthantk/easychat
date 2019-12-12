@@ -1,9 +1,5 @@
 import UserModel from "./../models/userModel";
-import { param } from "express-validator/check";
-import { rejects } from "assert";
-import {transError} from "./../lang/vi";
 import bcrypt from "bcryptjs";
-import { resolve } from "url";
 
 
 const saltRound = 7;

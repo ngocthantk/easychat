@@ -142,8 +142,8 @@ function callUserUpdateAvatar(){
         data: userAvatar,
         success: function(result){
             //hiển thị thành công
-            $(".user-modal-alert-success").find("span").text(result.message);
-            $(".user-modal-alert-success").css("display","block");
+            //$(".user-modal-alert-success").find("span").text(result.message);
+            //$(".user-modal-alert-success").css("display","block");
 
             //cập nhật avatar ở navbar
             $("#navbar-avatar").attr("src", result.imageSrc);
@@ -175,8 +175,8 @@ function callUserUpdateInfo(){
         data: userInfo,
         success: function(result){
             //hiển thị thành công
-            $(".user-modal-alert-success").find("span").text(result.message);
-            $(".user-modal-alert-success").css("display","block");
+            //$(".user-modal-alert-success").find("span").text(result.message);
+            //$(".user-modal-alert-success").css("display","block");
 
             // cập nhật thông tin 
             originUserInfo = Object.assign(originUserInfo, userInfo);
@@ -276,10 +276,12 @@ $(document).ready(function(){
         if (userAvatar){
             callUserUpdateAvatar();
             $("#user-profile-modal").modal("hide");
+            alertify.notify("Cập nhật avatar thành công", "success", 3);
         }
         if (!$.isEmptyObject(userInfo)){
             callUserUpdateInfo();
             $("#user-profile-modal").modal("hide");
+            alertify.notify("Cập nhật thông tin người dùng thành công", "success", 3);
         }
         
     });

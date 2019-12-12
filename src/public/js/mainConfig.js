@@ -162,6 +162,7 @@ function changeScreenChat(){
   });
 }
 
+
 function convertEmoji(){
   $(".convert-emoji").each(function() {
     var original = $(this).html();
@@ -204,7 +205,7 @@ $(document).ready(function() {
   // thay đổi màn hình chat
   changeScreenChat();
   //click vaof phần tử đầu tiên của cuộc trò chuyện
-  //$("ul.people").find("a")[0].click();
+  $("ul.people").find("a")[0].click();
   talk();
   
   convertEmoji();

@@ -183,7 +183,7 @@ function callCreateGroupChat(){
                 </div>
             </div>`;
             $("ul.people").find(`a[data-target="#to_${data.groupChat._id}"]`).click();
-            
+            textAndEmojiChat();
             //step 8: emit tạo mới group 
             socket.emit("new-group-created", {groupChat: data.groupChat});
             //step 9: cập nhật online
@@ -321,6 +321,7 @@ $(document).ready( () => {
         //chọn phần từ đầu tiền khi thêm group
         $("ul.people").find(`a[data-target="#to_${response.groupChat._id}"]`).click();
         //bấm vào trò chuyện sau khi thêm group
+        textAndEmojiChat();
         //step 8:   emit khi người dùng tạo group chat
         socket.emit("member-received-group-chat", {groupChatId: response.groupChat._id});
         //step 9: Cập nhật online

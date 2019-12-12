@@ -24,7 +24,7 @@ function textAndEmojiChat(divId){
                     message: data.message
                 };
                 //step 1 xử lý dữ liệu trước khi hiển thị
-                let messageOfMe = $(`<div class="bubble you" data-mess-id="${data.message._id}"></div>`)
+                let messageOfMe = $(`<div class="bubble me" data-mess-id="${data.message._id}"></div>`)
 
                 messageOfMe.text(data.message.text);
                 let convertEmojiMessage = emojione.toImage(messageOfMe.html());

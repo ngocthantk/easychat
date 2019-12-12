@@ -65,3 +65,7 @@ socket.on("response-add-new-contact", function(user) {
     removeRequestContactReceived();
     approveRequestContactReceived();
 });
+
+$(document).ready(function(){
+    addContact();
+});

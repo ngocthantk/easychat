@@ -1,6 +1,4 @@
 import express from "express";
-import mongoose from "mongoose";
-import bluebird from "bluebird";
 import bodyParser from "body-parser";
 import {check,validationResult} from "express-validator/check";
 import connectFlash from "connect-flash";
@@ -9,25 +7,19 @@ import connectMongo from "connect-mongo";
 import {auth,user_Controller, contact_Service, notification_Service, message_Service, chatGroup_Service} from "./services/index";
 import passport from "passport";
 import initPassportLocal from "./controllers/passportController/local";
-import {transSuccess, transErrors} from "./lang/vi";
-import {userValid, messageValid} from "./validation/index";
+import {transSuccess} from "./lang/vi";
+import {userValid} from "./validation/index";
 import http from "http";
 import socketio from "socket.io";
 import initSockets from "./sockets/index";
 import passportSocketIo from "passport.socketio";
 import cookieParser from "cookie-parser";
-import {notification} from "./services/index";
 import multer from "multer";
 import fsExtra from "fs-extra";
-import events from "events";
-import ejs from "ejs";
-import {promisify} from "util";
 import connectDB from "./config/connectDB";
 import {bufferToBase64, lastItemOfArray, convertTimeStampToHumanTime} from "./helper/clientHelper"; 
 //init app
-const renderFile = promisify(ejs.renderFile).bind(ejs);
 let app = express();
-events.EventEmitter.defaultMaxListeners = 30;
 //init server with socketio & express app
 let server = http.createServer(app);
 let io = socketio(server);
